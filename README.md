@@ -22,11 +22,11 @@
 
 다른 언어로 포팅할 경우, 다른 사용자들을 위해서 이 문서들과 연결시켜주세요.<br/>
 
-XMLParser.java <br/>
+## XMLParser.java <br/>
 xml파일을 파싱하여 데이터로 저장하는 코드<br/>
 
-BuildingPropertiesParser.java <br/>
+## BuildingPropertiesParser.java <br/>
 전체재산 중 건물재산내역을 처리하여 표준화된 법정동주소를 뽑아내는 코드<br/>
 
-나머지파일3개.txt <br/>
+## 나머지파일3개.txt <br/>
 건물 재산 처리에 관련된 파일들<br/>
