@@ -11,23 +11,23 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
-*´ëÇÑ¹Î±¹ ÀüÀÚ°üº¸¿¡¼­ °ø°³µÇ´Â °øÁ÷ÀÚ Àç»ê°ø°³ ÆÄÀÏÀ» txt µ¥ÀÌÅÍ Çü½ÄÀ¸·Î º¯È¯ÇÒ ¼ö ÀÖ½À´Ï´Ù. ±¹È¸¿Í ´ë¹ı¿ø, Áö¹æÁ¤ºÎÀÇ Àç»ê°ø°³ ¿ª½Ã Çü½Ä¸¸ ºñ½ÁÇÏ´Ù¸é º¯È¯ °¡´ÉÇÕ´Ï´Ù.
+*ëŒ€í•œë¯¼êµ­ ì „ìê´€ë³´ì—ì„œ ê³µê°œë˜ëŠ” ê³µì§ì ì¬ì‚°ê³µê°œ íŒŒì¼ì„ txt ë°ì´í„° í˜•ì‹ìœ¼ë¡œ ë³€í™˜í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤. êµ­íšŒì™€ ëŒ€ë²•ì›, ì§€ë°©ì •ë¶€ì˜ ì¬ì‚°ê³µê°œ ì—­ì‹œ í˜•ì‹ë§Œ ë¹„ìŠ·í•˜ë‹¤ë©´ ë³€í™˜ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 
-*¸ÕÀú pdf·Î µÈ ¿øº» ÆÄÀÏÀ» xmlÇü½ÄÀ¸·Î exportÇØ¾ß ÇÕ´Ï´Ù. 
-*¾Æ·¡ÇÑ±ÛÀÌ³ª ´Ù¸¥ Æ÷¸ËÀ¸·Î °ø°³µÈ ¹®¼­°¡ ÀÖ´Ù¸é pdf·Î 1Â÷ º¯È¯ ÈÄ pdf¸¦ xml·Î exportÇØ¼­ »ç¿ëÇÏ¸é µË´Ï´Ù.   
-*ÀÌ ÄÚµå¸¦ ÀÌ¿ëÇØ¼­ °íÀ§°øÁ÷ÀÚ Àç»ê xmlÆÄÀÏÀ» µ¥ÀÌÅÍ·Î º¯È¯ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+*ë¨¼ì € pdfë¡œ ëœ ì›ë³¸ íŒŒì¼ì„ xmlí˜•ì‹ìœ¼ë¡œ exportí•´ì•¼ í•©ë‹ˆë‹¤. 
+*ì•„ë˜í•œê¸€ì´ë‚˜ ë‹¤ë¥¸ í¬ë§·ìœ¼ë¡œ ê³µê°œëœ ë¬¸ì„œê°€ ìˆë‹¤ë©´ pdfë¡œ 1ì°¨ ë³€í™˜ í›„ pdfë¥¼ xmlë¡œ exportí•´ì„œ ì‚¬ìš©í•˜ë©´ ë©ë‹ˆë‹¤.   
+*ì´ ì½”ë“œë¥¼ ì´ìš©í•´ì„œ ê³ ìœ„ê³µì§ì ì¬ì‚° xmlíŒŒì¼ì„ ë°ì´í„°ë¡œ ë³€í™˜í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 
-*¼¿ÀÇ Å×µÎ¸® ¼±µéÀ» È®ÀÎÇÏ¸é¼­ ´«À¸·Î º¸´Â ÆÇ´Ü°ú À¯»çÇÏµµ·Ï ÀÎÁö½ÃÄÑ º¯È¯ÇÏ´Â ¹æ½ÄÀÔ´Ï´Ù. 
-*'ÀÎÁö'¶ó´Â °í ¼öÁØÀÇ ´Ü¾î¸¦ »ç¿ëÇÏ¿´Áö¸¸, °á±¹ ifÀı·Î µµ¹è°¡ µÇ¾î ÀÖ´Â Á¡ ¾çÇØ¹Ù¶ø´Ï´Ù.
+*ì…€ì˜ í…Œë‘ë¦¬ ì„ ë“¤ì„ í™•ì¸í•˜ë©´ì„œ ëˆˆìœ¼ë¡œ ë³´ëŠ” íŒë‹¨ê³¼ ìœ ì‚¬í•˜ë„ë¡ ì¸ì§€ì‹œì¼œ ë³€í™˜í•˜ëŠ” ë°©ì‹ì…ë‹ˆë‹¤. 
+*'ì¸ì§€'ë¼ëŠ” ê³  ìˆ˜ì¤€ì˜ ë‹¨ì–´ë¥¼ ì‚¬ìš©í•˜ì˜€ì§€ë§Œ, ê²°êµ­ ifì ˆë¡œ ë„ë°°ê°€ ë˜ì–´ ìˆëŠ” ì  ì–‘í•´ë°”ëë‹ˆë‹¤.
 
-*Áß°£¿¡ ¿¡·¯°¡ ¹ß»ıÇÏ¸é ÄÚµå¸¦ ¼öÁ¤ÇØ ÁÙ ¼öµµ ÀÖÁö¸¸ ¿ö³« ´Ù¾çÇÑ ¿¡·¯µéÀÌ ÀÖ±â ¶§¹®¿¡ ÄÚµå ¼öÁ¤À¸·Î ´ëÀÀÇÏ±â´Â ÈûÀÌ µì´Ï´Ù. 
-*Â÷¶ó¸® xmlÀ» excel·Î ¿­¾î¼­ ÇØ´ç ºÎºĞÀÇ Å×µÎ¸®Ã³¸®°¡ Àß¸ø µÇ¾î ÀÖÀ¸¸é(»ç¶÷ÀÌ ´«À¸·Î Á÷Á¢ ºÁµµ Ç¥°¡ ÀÌ»óÇÏ°Ô µÇ¾î ÀÖÀ¸¸é) ÇØ´ç ºÎºĞÀÇ Å×µÎ¸®³ª µ¥ÀÌÅÍ¸¦ ÀûÀıÈ÷ ¼öÁ¤ÇÑ ÈÄ xml·Î ±×´ë·Î ÀúÀåÇÏ¿© ´Ù½Ã ÀÌ ÄÚµå¸¦ ½ÇÇàÇØº¸¸é À¢¸¸ÇÑ °æ¿ì Àß µË´Ï´Ù.
+*ì¤‘ê°„ì— ì—ëŸ¬ê°€ ë°œìƒí•˜ë©´ ì½”ë“œë¥¼ ìˆ˜ì •í•´ ì¤„ ìˆ˜ë„ ìˆì§€ë§Œ ì›Œë‚™ ë‹¤ì–‘í•œ ì—ëŸ¬ë“¤ì´ ìˆê¸° ë•Œë¬¸ì— ì½”ë“œ ìˆ˜ì •ìœ¼ë¡œ ëŒ€ì‘í•˜ê¸°ëŠ” í˜ì´ ë“­ë‹ˆë‹¤. 
+*ì°¨ë¼ë¦¬ xmlì„ excelë¡œ ì—´ì–´ì„œ í•´ë‹¹ ë¶€ë¶„ì˜ í…Œë‘ë¦¬ì²˜ë¦¬ê°€ ì˜ëª» ë˜ì–´ ìˆìœ¼ë©´(ì‚¬ëŒì´ ëˆˆìœ¼ë¡œ ì§ì ‘ ë´ë„ í‘œê°€ ì´ìƒí•˜ê²Œ ë˜ì–´ ìˆìœ¼ë©´) í•´ë‹¹ ë¶€ë¶„ì˜ í…Œë‘ë¦¬ë‚˜ ë°ì´í„°ë¥¼ ì ì ˆíˆ ìˆ˜ì •í•œ í›„ xmlë¡œ ê·¸ëŒ€ë¡œ ì €ì¥í•˜ì—¬ ë‹¤ì‹œ ì´ ì½”ë“œë¥¼ ì‹¤í–‰í•´ë³´ë©´ ì›¬ë§Œí•œ ê²½ìš° ì˜ ë©ë‹ˆë‹¤.
 
-*¾Ö¸ÅÇÑ °æ¿ì°¡ ¹ß»ıÇÒ¶§´Â °æ°í ¸Ş½ÃÁö°¡ Ãâ·ÂµÇµµ·Ï ÇÏ¿© ¼öÁ¤¿¡ Âü°í°¡ µÇµµ·Ï Çß½À´Ï´Ù.
+*ì• ë§¤í•œ ê²½ìš°ê°€ ë°œìƒí• ë•ŒëŠ” ê²½ê³  ë©”ì‹œì§€ê°€ ì¶œë ¥ë˜ë„ë¡ í•˜ì—¬ ìˆ˜ì •ì— ì°¸ê³ ê°€ ë˜ë„ë¡ í–ˆìŠµë‹ˆë‹¤.
 
-*ÇöÀçÀÇ °øÁ÷ÀÚÀç»ê°ø°³ÆÄÀÏº¯È¯¿¡ ÃÖÀûÈ­µÈ ÄÚµåÀÔ´Ï´Ù. ³»¿ëÀ» »ìÆìº¸¸é ¾Æ½Ã°ÚÁö¸¸, ±×¸® ½º¸¶Æ®ÇÑ ÄÚµå°¡ ¾Æ´Ï´Ï, ´õ ÁÁÀº ÄÚµå·Î ¼öÁ¤ÇØÁÖ½Ç ºĞÀÌ ÀÖ´Ù¸é Àû±Ø È¯¿µÇÕ´Ï´Ù. 
+*í˜„ì¬ì˜ ê³µì§ìì¬ì‚°ê³µê°œíŒŒì¼ë³€í™˜ì— ìµœì í™”ëœ ì½”ë“œì…ë‹ˆë‹¤. ë‚´ìš©ì„ ì‚´í´ë³´ë©´ ì•„ì‹œê² ì§€ë§Œ, ê·¸ë¦¬ ìŠ¤ë§ˆíŠ¸í•œ ì½”ë“œê°€ ì•„ë‹ˆë‹ˆ, ë” ì¢‹ì€ ì½”ë“œë¡œ ìˆ˜ì •í•´ì£¼ì‹¤ ë¶„ì´ ìˆë‹¤ë©´ ì ê·¹ í™˜ì˜í•©ë‹ˆë‹¤. 
 
-*´Ù¸¥ ¾ğ¾î·Î Æ÷ÆÃÇÒ °æ¿ì, ´Ù¸¥ »ç¿ëÀÚµéÀ» À§ÇØ¼­ ÀÌ ¹®¼­µé°ú ¿¬°á½ÃÄÑÁÖ¼¼¿ä.
+*ë‹¤ë¥¸ ì–¸ì–´ë¡œ í¬íŒ…í•  ê²½ìš°, ë‹¤ë¥¸ ì‚¬ìš©ìë“¤ì„ ìœ„í•´ì„œ ì´ ë¬¸ì„œë“¤ê³¼ ì—°ê²°ì‹œì¼œì£¼ì„¸ìš”.
  * @author vuski@github
  **/
 
@@ -35,15 +35,15 @@ public class XMLParser {
 
 	public static void main(String[] args) throws IOException {
 		
-		String fileLocationSource = "D:\\°íÀ§°øÁ÷ÀÚ Àç»ê\\data\\2017\\"; //xml ÆÄÀÏ °æ·Î
-		String fileName = "°æ±âµµ.xml"; //xml ÆÄÀÏ¸í
+		String fileLocationSource = "D:\\ê³ ìœ„ê³µì§ì ì¬ì‚°\\data\\2017\\"; //xml íŒŒì¼ ê²½ë¡œ
+		String fileName = "ê²½ê¸°ë„.xml"; //xml íŒŒì¼ëª…
 		
-		//ÆÄÀÏÀ» ÀĞ¾î¿Â ÈÄ ±âº»ÀûÀÎ ÀüÃ³¸®ÀÛ¾÷À» ÇÑ´Ù.
+		//íŒŒì¼ì„ ì½ì–´ì˜¨ í›„ ê¸°ë³¸ì ì¸ ì „ì²˜ë¦¬ì‘ì—…ì„ í•œë‹¤.
 		String text = readFileText(fileLocationSource+fileName, "UTF-8").replaceAll("&#10;","");
 		text = text.replaceAll(">[\\s]+<","><").replaceAll("\r", "").replaceAll("\n","").replaceAll("     "," ");
 		//System.out.println(text);
 				
-		FileOutputStream fos = new FileOutputStream(fileLocationSource+fileName+"_converted.txt"); //ÀúÀåÇÒ ÆÄÀÏ ÀÌ¸§
+		FileOutputStream fos = new FileOutputStream(fileLocationSource+fileName+"_converted.txt"); //ì €ì¥í•  íŒŒì¼ ì´ë¦„
 		OutputStreamWriter osw = new OutputStreamWriter(fos,"UTF-8");
 		BufferedWriter bw = new BufferedWriter(osw);
 		
@@ -51,21 +51,21 @@ public class XMLParser {
 		int index = text.indexOf("<Row");
 		String sid ="";
 		
-		//xml¹®¼­ ¾Õ ºÎºĞÀÇ ½ºÅ¸ÀÏÀ» ÀĞ¾î¿Â´Ù.
+		//xmlë¬¸ì„œ ì• ë¶€ë¶„ì˜ ìŠ¤íƒ€ì¼ì„ ì½ì–´ì˜¨ë‹¤.
 		HashSet<String> bottomBorders = getStylesBottom(text); 
 		HashSet<String> rightBorders = getStylesRight(text);
 		//for (String o:bottomBorders) System.out.println(o);	
 		
-		L2 : while(true) {  //ÀÌ while loop´Â  »ç¶÷´ç ÇÑ¹ø¾¿ µµ´Â °Í
+		L2 : while(true) {  //ì´ while loopëŠ”  ì‚¬ëŒë‹¹ í•œë²ˆì”© ë„ëŠ” ê²ƒ
 			
 			ArrayList<String> cellArray;			
-			String row = getRow(text,index); //ÀÏ´Ü ÇÑ ÁÙÀ» ¹Ş¾Æ¿Â´Ù. ½ÃÀÛ!
+			String row = getRow(text,index); //ì¼ë‹¨ í•œ ì¤„ì„ ë°›ì•„ì˜¨ë‹¤. ì‹œì‘!
 			//System.out.println(row);
 			
-			//±âº»Àû °ËÁõ. ÇÑ ÇàÀÇ ³¡Àº ¾Æ´ÑÁö, ¾Æ¹« ³»¿ëÀÌ ¾øÁö´Â ¾ÊÀºÁö
-			if (row.equals("exit!")) { //´õ ÀÌ»ó ¾øÀ¸¸é exit ¸®ÅÏ
+			//ê¸°ë³¸ì  ê²€ì¦. í•œ í–‰ì˜ ëì€ ì•„ë‹Œì§€, ì•„ë¬´ ë‚´ìš©ì´ ì—†ì§€ëŠ” ì•Šì€ì§€
+			if (row.equals("exit!")) { //ë” ì´ìƒ ì—†ìœ¼ë©´ exit ë¦¬í„´
 				break L2;
-			} else if (row.indexOf("continue")!=-1) { //¾Æ¹«³»¿ë¾øÀÌ row°¡ ´İÈ÷¸é
+			} else if (row.indexOf("continue")!=-1) { //ì•„ë¬´ë‚´ìš©ì—†ì´ rowê°€ ë‹«íˆë©´
 				index = Integer.parseInt(row.split("\\|")[1]);				
 				continue L2;
 			}
@@ -74,16 +74,16 @@ public class XMLParser {
 			//System.out.println(text.substring(index, index+4));
 			String rowContents = getContents(row).replaceAll(" ","");
 			//System.exit(0);;
-			int checkA1 = rowContents.indexOf("¼Ò¼Ó");
-			int checkA2 = rowContents.indexOf("Á÷À§");
-			int checkA3 = rowContents.indexOf("¼º¸í");
+			int checkA1 = rowContents.indexOf("ì†Œì†");
+			int checkA2 = rowContents.indexOf("ì§ìœ„");
+			int checkA3 = rowContents.indexOf("ì„±ëª…");
 			
 			String[] result1 = new String[4];
 			System.out.println(rowContents);
-			if (checkA1!=-1 && checkA2!=-1 && checkA3!=-1) { //¼Ò¼Ó°ú Á÷À§°¡ ¾øÀ¸¸é ´ÙÀ½À¸·Î ³Ñ¾î°¡°í '¼Ò¼Ó'ÀÌ ÀÖÀ¸¸é Ã¹ Ã³¸®
-				result1[0] = rowContents.substring(checkA1+2, checkA2); //¼Ò¼Ó
-				result1[1] = rowContents.substring(checkA2+2, checkA3);  //Á÷À§
-				result1[2] = rowContents.substring(checkA3+2);			//¼º¸í
+			if (checkA1!=-1 && checkA2!=-1 && checkA3!=-1) { //ì†Œì†ê³¼ ì§ìœ„ê°€ ì—†ìœ¼ë©´ ë‹¤ìŒìœ¼ë¡œ ë„˜ì–´ê°€ê³  'ì†Œì†'ì´ ìˆìœ¼ë©´ ì²« ì²˜ë¦¬
+				result1[0] = rowContents.substring(checkA1+2, checkA2); //ì†Œì†
+				result1[1] = rowContents.substring(checkA2+2, checkA3);  //ì§ìœ„
+				result1[2] = rowContents.substring(checkA3+2);			//ì„±ëª…
 			} else {
 				
 				continue L2;
@@ -91,31 +91,31 @@ public class XMLParser {
 			
 			String cell="", contents;			
 			
-			//System.out.println("¿©±â "+index);
-			row = getRow(text,index); //'Ãµ¿ø' ºÎºĞÀÌ¹Ç·Î ³Ñ±ä´Ù
+			//System.out.println("ì—¬ê¸° "+index);
+			row = getRow(text,index); //'ì²œì›' ë¶€ë¶„ì´ë¯€ë¡œ ë„˜ê¸´ë‹¤
 			//System.out.println(text.substring(index, index+4));
 			index = index+row.length();
 			
-			row = getRow(text,index); //º»ÀÎ°úÀÇ °ü°è µîµîÀÌ¹Ç·Î ³Ñ±ä´Ù
+			row = getRow(text,index); //ë³¸ì¸ê³¼ì˜ ê´€ê³„ ë“±ë“±ì´ë¯€ë¡œ ë„˜ê¸´ë‹¤
 			//System.out.println(index+row);
 			//System.out.println(text.substring(index, index+4));
 			String rowContentTemp = getContents(row).replaceAll(" ","");
-			boolean existBefore = rowContentTemp.indexOf("Á¾Àü°¡¾×")!=-1? true:false;  ////°£È¤ ½Å±Ô ÁøÀÔÀÚÀÇ °æ¿ì Á¾Àü°¡¾×ÀÌ ¾ø´Â °æ¿ì°¡ ÀÖ´Ù.
+			boolean existBefore = rowContentTemp.indexOf("ì¢…ì „ê°€ì•¡")!=-1? true:false;  ////ê°„í˜¹ ì‹ ê·œ ì§„ì…ìì˜ ê²½ìš° ì¢…ì „ê°€ì•¡ì´ ì—†ëŠ” ê²½ìš°ê°€ ìˆë‹¤.
 			index = index+row.length();
 			
 			//System.out.println(index+row);
-			row = getRow(text,index); //Áõ°¡¾×,°¨¼Ò¾×ÀÌ¹Ç·Î ³Ñ±ä´Ù
+			row = getRow(text,index); //ì¦ê°€ì•¡,ê°ì†Œì•¡ì´ë¯€ë¡œ ë„˜ê¸´ë‹¤
 			//System.out.println((row));
-			if (row.indexOf("¢º")==-1) {  //±âÁ¸±İ¾×¾ø¾î¼­ ÀÎµ¦½º ÇàÀÌ ÀûÀº ½Å±ÔÁøÀÔÀÚ¶§¹®¿¡ ÀÖ´Â°ÍÀÓ
+			if (row.indexOf("â–¶")==-1) {  //ê¸°ì¡´ê¸ˆì•¡ì—†ì–´ì„œ ì¸ë±ìŠ¤ í–‰ì´ ì ì€ ì‹ ê·œì§„ì…ìë•Œë¬¸ì— ìˆëŠ”ê²ƒì„
 				index = index+row.length(); 
 			}
 			//System.out.println(index+row);			
 			
 			
-			L1 : while (true) {  //ÀÌ ·çÇÁ´Â Àç»êÀÇ Á¾·ù ÇÏ³ª¾¿ ´Ù·ç´Â °ÍÀÓ
+			L1 : while (true) {  //ì´ ë£¨í”„ëŠ” ì¬ì‚°ì˜ ì¢…ë¥˜ í•˜ë‚˜ì”© ë‹¤ë£¨ëŠ” ê²ƒì„
 				
 				row = getRow(text,index);
-				if (row.indexOf("continue")!=-1) { //¾Æ¹«³»¿ë¾øÀÌ row°¡ ´İÈ÷¸é
+				if (row.indexOf("continue")!=-1) { //ì•„ë¬´ë‚´ìš©ì—†ì´ rowê°€ ë‹«íˆë©´
 					index = Integer.parseInt(row.split("\\|")[1]);
 					//System.out.println(result1[2]+"_"+row);
 					continue L1;
@@ -124,35 +124,35 @@ public class XMLParser {
 				//System.out.println(row);
 				
 				rowContents = getContents(row); 
-				checkA1 = rowContents.indexOf("¼Ò¼Ó");
-				checkA2 = rowContents.indexOf("Á÷À§");
-				checkA3 = rowContents.indexOf("¼º¸í");
+				checkA1 = rowContents.indexOf("ì†Œì†");
+				checkA2 = rowContents.indexOf("ì§ìœ„");
+				checkA3 = rowContents.indexOf("ì„±ëª…");
 				
 				//System.out.println(rowContents);
 				if (checkA1!=-1 && checkA2!=-1 && checkA3!=-1) {
-					System.out.println("¼Ò¼ÓµîÀå "+index);
+					System.out.println("ì†Œì†ë“±ì¥ "+index);
 					//System.out.println(text.substring(index, index+4));
-					break L1; //¼Ò¼ÓÀÌ¸é ¹ÛÀ¸·Î ³ª°¨.´ÙÀ½ »ç¶÷À¸·Î ³Ñ¾î°¬´Ù´Â ÀÇ¹ÌÀÓ	
+					break L1; //ì†Œì†ì´ë©´ ë°–ìœ¼ë¡œ ë‚˜ê°.ë‹¤ìŒ ì‚¬ëŒìœ¼ë¡œ ë„˜ì–´ê°”ë‹¤ëŠ” ì˜ë¯¸ì„	
 					
-				} else if (row.replaceAll(" ","").indexOf(">ÃÑ°è<")!=-1 
-						||row.replaceAll(" ","").indexOf(">¢ºÃÑ°è<")!=-1
-						||getContents(row).indexOf("¢ºÃÑ°è(¼Ò°è)")!=-1) { //ÀÌ°ÍÀº ÅÂ±× ¾øÀÌ Á¡°Ë. º»¹® ÁßÀÇ ÃÑ°è¿Í ±¸ºĞÇÏ±â À§ÇÔ
+				} else if (row.replaceAll(" ","").indexOf(">ì´ê³„<")!=-1 
+						||row.replaceAll(" ","").indexOf(">â–¶ì´ê³„<")!=-1
+						||getContents(row).indexOf("â–¶ì´ê³„(ì†Œê³„)")!=-1) { //ì´ê²ƒì€ íƒœê·¸ ì—†ì´ ì ê²€. ë³¸ë¬¸ ì¤‘ì˜ ì´ê³„ì™€ êµ¬ë¶„í•˜ê¸° ìœ„í•¨
 					index = index+row.length();
-					//System.out.println("ÃÑ°èµîÀå "+index);
-					break L1; //ÃÑ°è°¡ µîÀåÇØµµ ´ÙÀ½À¸·Î ³Ñ¾î°¨.
+					//System.out.println("ì´ê³„ë“±ì¥ "+index);
+					break L1; //ì´ê³„ê°€ ë“±ì¥í•´ë„ ë‹¤ìŒìœ¼ë¡œ ë„˜ì–´ê°.
 				} else {					
-					rowContents = row.replaceAll(" ","").replaceAll("\\(¼Ò°è\\)","");
-					if (rowContents.indexOf("¢º")!=-1 && rowContents.indexOf("ÃÑ°è")==-1){  //´ë¹ı¿ø¿¡¼­´Â ¢ºÃÑ°è. ¸¦ »ç¿ëÇÑ´Ù. ex. 2016_05.xml ¾ç½ÂÅÂ
+					rowContents = row.replaceAll(" ","").replaceAll("\\(ì†Œê³„\\)","");
+					if (rowContents.indexOf("â–¶")!=-1 && rowContents.indexOf("ì´ê³„")==-1){  //ëŒ€ë²•ì›ì—ì„œëŠ” â–¶ì´ê³„. ë¥¼ ì‚¬ìš©í•œë‹¤. ex. 2016_05.xml ì–‘ìŠ¹íƒœ
 						//contents = contents.replaceAll(" ","");
-						result1[3]= getContents(getCellArray(row).get(0)).replaceAll("¢º","").replaceAll(" ","").replaceAll("\\(¼Ò°è\\)","");
-						//result1[3] = rowContents.substring(rowContents.indexOf("¢º")+1, rowContents.indexOf("<",rowContents.indexOf("¢º")+1));
-						//System.out.println("¿©±â<"+result1[3]+">");
+						result1[3]= getContents(getCellArray(row).get(0)).replaceAll("â–¶","").replaceAll(" ","").replaceAll("\\(ì†Œê³„\\)","");
+						//result1[3] = rowContents.substring(rowContents.indexOf("â–¶")+1, rowContents.indexOf("<",rowContents.indexOf("â–¶")+1));
+						//System.out.println("ì—¬ê¸°<"+result1[3]+">");
 						index = index+row.length();
 						continue L1;
 					} 
 				}
 				
-				//¿©±â¼­ºÎÅÍ Àç»ê »ó¼¼¸¦ ÀĞ´Â´Ù.
+				//ì—¬ê¸°ì„œë¶€í„° ì¬ì‚° ìƒì„¸ë¥¼ ì½ëŠ”ë‹¤.
 				ArrayList<String> category = new ArrayList<String>();
 				ArrayList<String> who = new ArrayList<String>();
 				ArrayList<String> what = new ArrayList<String>();
@@ -175,19 +175,19 @@ public class XMLParser {
 				int countIndex = 0;
 				int sixColumnCount = 0;
 				
-				//xml¹®¼­¸¦ º¸¸é ¼¿µéÀÌ mergeµÇ¾î Ã³¸®µÈ ºÎºĞµéÀÌ ´Ù¼ö ÀÖ´Ù. ¸î¹éÆäÀÌÁöÀÇ ¹®¼­°¡ ½ÃÀÛºÎÅÍ ³¡±îÁö °°Àº µ¥ÀÌÅÍ°¡ µ¿ÀÏÇÑ ¿­¿¡ µé¾îÀÖÁö ¾Ê°í ÁÂ¿ì·Î ¿Ô´Ù°¬´Ù ÇÏ±â ¶§¹®ÀÌ´Ù.
-				//±×·³¿¡µµ ºÒ±¸ÇÏ°í ´«À¸·Î º¸¸é ¹«¾ùÀÌ ¹«¾ùÀÎÁö ±¸ºĞÇÒ ¼ö ÀÖ´Ù. ±×·¯ÇÑ °úÁ¤À» ±¸ÇöÇÏ±â À§ÇØ, ¿©±âºÎÅÍ ¾Æ·¡ÀÇ µÎ º¯¼ö¸¦ ÀÌ¿ëÇÏ¿© mergeµéÀ» ¼¼ ³»·Á°¡¸é¼­ °¢°¢ÀÇ º¯¼ö°ªµéÀÌ Á¦ÀÚ¸®¸¦ Ã£¾Æ°¡µµ·Ï ÇÑ´Ù.
+				//xmlë¬¸ì„œë¥¼ ë³´ë©´ ì…€ë“¤ì´ mergeë˜ì–´ ì²˜ë¦¬ëœ ë¶€ë¶„ë“¤ì´ ë‹¤ìˆ˜ ìˆë‹¤. ëª‡ë°±í˜ì´ì§€ì˜ ë¬¸ì„œê°€ ì‹œì‘ë¶€í„° ëê¹Œì§€ ê°™ì€ ë°ì´í„°ê°€ ë™ì¼í•œ ì—´ì— ë“¤ì–´ìˆì§€ ì•Šê³  ì¢Œìš°ë¡œ ì™”ë‹¤ê°”ë‹¤ í•˜ê¸° ë•Œë¬¸ì´ë‹¤.
+				//ê·¸ëŸ¼ì—ë„ ë¶ˆêµ¬í•˜ê³  ëˆˆìœ¼ë¡œ ë³´ë©´ ë¬´ì—‡ì´ ë¬´ì—‡ì¸ì§€ êµ¬ë¶„í•  ìˆ˜ ìˆë‹¤. ê·¸ëŸ¬í•œ ê³¼ì •ì„ êµ¬í˜„í•˜ê¸° ìœ„í•´, ì—¬ê¸°ë¶€í„° ì•„ë˜ì˜ ë‘ ë³€ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ mergeë“¤ì„ ì„¸ ë‚´ë ¤ê°€ë©´ì„œ ê°ê°ì˜ ë³€ìˆ˜ê°’ë“¤ì´ ì œìë¦¬ë¥¼ ì°¾ì•„ê°€ë„ë¡ í•œë‹¤.
 				int[] mergedownCount = {0,0,0,0,0,0,0,0};
 				int[] check = {0,0,0,0,0,0,0,0};
 				
-				L3 : while (true) {   // ÀúÀåµÇ´Â ¼Ò´ÜÀ§¸¦ ´Ù·é´Ù.
-					//¿©±âºÎÅÍ ÇÑ ¾ÆÀÌÅÛ¾¿ Ã³¸®
+				L3 : while (true) {   // ì €ì¥ë˜ëŠ” ì†Œë‹¨ìœ„ë¥¼ ë‹¤ë£¬ë‹¤.
+					//ì—¬ê¸°ë¶€í„° í•œ ì•„ì´í…œì”© ì²˜ë¦¬
 					
 					row = getRow(text,index);
 					//System.out.println(row);
 					
-					if (row.indexOf("¢º")!=-1&&getContents(row).indexOf("ÃÑ°è")==-1) {
-						if (reason.size()<who.size()) { //¼¿ÀÌ ¼Ò°è±îÁö ¹Ğ·Á³»·Á°¡¼­ º´ÇÕµÇ¾úÀ» °æ¿ì 2016_05.xml ÀÇ ±èÁ¾¿µ
+					if (row.indexOf("â–¶")!=-1&&getContents(row).indexOf("ì´ê³„")==-1) {
+						if (reason.size()<who.size()) { //ì…€ì´ ì†Œê³„ê¹Œì§€ ë°€ë ¤ë‚´ë ¤ê°€ì„œ ë³‘í•©ë˜ì—ˆì„ ê²½ìš° 2016_05.xml ì˜ ê¹€ì¢…ì˜
 							for (int j=0 ; j <sixColumnCount ; j++) {
 								reason.add(reason_);
 								//System.out.println("reason:"+reason_);
@@ -196,16 +196,16 @@ public class XMLParser {
 							sixColumnCount =0;
 						}
 						break L3;
-					} else if (row.replaceAll(" ","").indexOf(">ÃÑ°è<")!=-1 
-							||row.replaceAll(" ","").indexOf(">¢ºÃÑ°è<")!=-1
-							||getContents(row).indexOf("¢ºÃÑ°è(¼Ò°è)")!=-1) { //ÀÌ°ÍÀº ÅÂ±× ¾øÀÌ Á¡°Ë. º»¹® ÁßÀÇ ÃÑ°è¿Í ±¸ºĞÇÏ±â À§ÇÔ //2013_5.xml ÀÌÁ¾¼®
-						//System.out.println("ÃÑ°èµîÀå "+index);
-						break L3; //ÃÑ°è°¡ µîÀåÇØµµ ´ÙÀ½À¸·Î ³Ñ¾î°¨.
-					} else if (getContents(row).indexOf("continue")!=-1) { // ¸¸¾à ºó ÇàÀÌ¸é,
-						System.out.println("ÀÌ°Ô Ãâ·ÂµÇ¸é ¹®Á¦°¡ ¾ø´ÂÁö ¿øº»°ú ´ëÁ¶ÇÏ¿© È®ÀÎÇØº»´Ù++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+					} else if (row.replaceAll(" ","").indexOf(">ì´ê³„<")!=-1 
+							||row.replaceAll(" ","").indexOf(">â–¶ì´ê³„<")!=-1
+							||getContents(row).indexOf("â–¶ì´ê³„(ì†Œê³„)")!=-1) { //ì´ê²ƒì€ íƒœê·¸ ì—†ì´ ì ê²€. ë³¸ë¬¸ ì¤‘ì˜ ì´ê³„ì™€ êµ¬ë¶„í•˜ê¸° ìœ„í•¨ //2013_5.xml ì´ì¢…ì„
+						//System.out.println("ì´ê³„ë“±ì¥ "+index);
+						break L3; //ì´ê³„ê°€ ë“±ì¥í•´ë„ ë‹¤ìŒìœ¼ë¡œ ë„˜ì–´ê°.
+					} else if (getContents(row).indexOf("continue")!=-1) { // ë§Œì•½ ë¹ˆ í–‰ì´ë©´,
+						System.out.println("ì´ê²Œ ì¶œë ¥ë˜ë©´ ë¬¸ì œê°€ ì—†ëŠ”ì§€ ì›ë³¸ê³¼ ëŒ€ì¡°í•˜ì—¬ í™•ì¸í•´ë³¸ë‹¤++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 						index = Integer.parseInt(row.split("\\|")[1]);
 						//System.out.println(text.substring(index, index+15));
-						continue L3; //ºó ÇàÀÌ ÀÖÀ» ¶§ ²÷°í°¥±î¸»±îÀÇ ¹®Á¦·Î, continue¿Í break¸¦ ÀûÀıÈ÷ ¼¯¾î½á¾ß ÇÑ´Ù. 2013_4.xml È²±ÔÃ¶. ¿©±â¼­´Â continue
+						continue L3; //ë¹ˆ í–‰ì´ ìˆì„ ë•Œ ëŠê³ ê°ˆê¹Œë§ê¹Œì˜ ë¬¸ì œë¡œ, continueì™€ breakë¥¼ ì ì ˆíˆ ì„ì–´ì¨ì•¼ í•œë‹¤. 2013_4.xml í™©ê·œì² . ì—¬ê¸°ì„œëŠ” continue
 					}
 					
 					
@@ -214,12 +214,12 @@ public class XMLParser {
 					cellArray = getCellArray(row);
 					if (getContents(cellArray.get(0)).equals("") 
 							&& getMergedown(cellArray.get(0))!=0
-							&& cellArray.size()==9) {  //Ã¹ÇàÀÌ ÀüÃ¼ÀûÀ¸·Î ¹Ğ·Á ÀÖÀ¸¸é,
+							&& cellArray.size()==9) {  //ì²«í–‰ì´ ì „ì²´ì ìœ¼ë¡œ ë°€ë ¤ ìˆìœ¼ë©´,
 						cellArray.remove(0);
 					}
 					
 					
-					//º»ÀÎ Àå³à ¹è¿ìÀÚ
+					//ë³¸ì¸ ì¥ë…€ ë°°ìš°ì
 					if (mergedownCount[0]==0) {
 						cell = cellArray.get(i++);
 						
@@ -228,14 +228,14 @@ public class XMLParser {
 						mergedownCount[0] += mergedowned;
 						contents = getContents(cell);
 						who_ += contents;
-						if (bottomBorders.contains(sid)) check[0] = 1; //¹ØÁÙÀÌ ÀÖÀ¸¸é ³¡À¸·Î ±â·Ï
+						if (bottomBorders.contains(sid)) check[0] = 1; //ë°‘ì¤„ì´ ìˆìœ¼ë©´ ëìœ¼ë¡œ ê¸°ë¡
 					
 					} else {
 						mergedownCount[0]--;
 					}
 					
 					
-					//Àç»êÀÇ Á¾·ù
+					//ì¬ì‚°ì˜ ì¢…ë¥˜
 					if (mergedownCount[1]==0) {
 						cell=cellArray.get(i++);
 						sid = getSID(cell);
@@ -244,13 +244,13 @@ public class XMLParser {
 						contents = getContents(cell);
 						//System.out.println(contents);
 						what_ += contents;
-						if (bottomBorders.contains(sid)) check[1] = 1; //¹ØÁÙÀÌ ÀÖÀ¸¸é ³¡À¸·Î ±â·Ï
+						if (bottomBorders.contains(sid)) check[1] = 1; //ë°‘ì¤„ì´ ìˆìœ¼ë©´ ëìœ¼ë¡œ ê¸°ë¡
 						
 					} else {
 						mergedownCount[1]--;
 					}
 					
-					//Àç»ê µğÅ×ÀÏ
+					//ì¬ì‚° ë””í…Œì¼
 					if (mergedownCount[2]==0) {
 						cell=cellArray.get(i++);
 						//System.out.println(cell);
@@ -261,23 +261,23 @@ public class XMLParser {
 						detail_ += contents;
 						
 						while (!rightBorders.contains(getSID(cell))) {
-							System.out.println("¿À¸¥ÂÊ Å×µÎ¸® ¾ø´Ù++++++++++++++++¾Æ·¡ Ãâ·ÂºÎºĞ Âü°íÇÏ¿© È®ÀÎÇØ¾ß ÇÑ´Ù.+++++++++++++");
+							System.out.println("ì˜¤ë¥¸ìª½ í…Œë‘ë¦¬ ì—†ë‹¤++++++++++++++++ì•„ë˜ ì¶œë ¥ë¶€ë¶„ ì°¸ê³ í•˜ì—¬ í™•ì¸í•´ì•¼ í•œë‹¤.+++++++++++++");
 							cell=cellArray.get(i++);
 							contents = getContents(cell);
 							System.out.println("contents:"+contents);
 							detail_ += contents;
 						}
 						//System.out.println("detail:"+detail_);
-						if (bottomBorders.contains(sid)) check[2] = 1; //¹ØÁÙÀÌ ÀÖÀ¸¸é ³¡À¸·Î ±â·Ï
+						if (bottomBorders.contains(sid)) check[2] = 1; //ë°‘ì¤„ì´ ìˆìœ¼ë©´ ëìœ¼ë¡œ ê¸°ë¡
 						
 					} else {
 						mergedownCount[2]--;
 					}
 					//System.out.println(cell);
-					//°¡¾×				
-					if (existBefore) {  //±âÁ¸ÇØÀÇ Àç»ê°ø°³ ³»¿ªÀÌ ÀÖÀ¸¸é
+					//ê°€ì•¡				
+					if (existBefore) {  //ê¸°ì¡´í•´ì˜ ì¬ì‚°ê³µê°œ ë‚´ì—­ì´ ìˆìœ¼ë©´
 						
-						//Á¾Àü°¡¾×
+						//ì¢…ì „ê°€ì•¡
 						if (mergedownCount[3]==0) {
 							cell=cellArray.get(i++);
 							sid = getSID(cell);
@@ -286,14 +286,14 @@ public class XMLParser {
 							contents = getContents(cell);
 							priceBefore_ += contents;
 							//System.out.println("priceBefore:"+priceBefore_);
-							if (bottomBorders.contains(sid)) check[3] = 1; //¹ØÁÙÀÌ ÀÖÀ¸¸é ³¡À¸·Î ±â·Ï
+							if (bottomBorders.contains(sid)) check[3] = 1; //ë°‘ì¤„ì´ ìˆìœ¼ë©´ ëìœ¼ë¡œ ê¸°ë¡
 							
 						} else {
 							mergedownCount[3]--;
 						}
 						
 						
-						//Áõ°¡¾×(½Ç°Å·¡¾×)
+						//ì¦ê°€ì•¡(ì‹¤ê±°ë˜ì•¡)
 						if (mergedownCount[4]==0) {
 							cell=cellArray.get(i++);
 							sid = getSID(cell);
@@ -302,13 +302,13 @@ public class XMLParser {
 							contents = getContents(cell);
 							priceRise_ += contents;
 							//System.out.println("priceRise:"+priceRise_);
-							if (bottomBorders.contains(sid)) check[4] = 1; //¹ØÁÙÀÌ ÀÖÀ¸¸é ³¡À¸·Î ±â·Ï
+							if (bottomBorders.contains(sid)) check[4] = 1; //ë°‘ì¤„ì´ ìˆìœ¼ë©´ ëìœ¼ë¡œ ê¸°ë¡
 							
 						} else {
 							mergedownCount[4]--;
 						}
 						
-						//°¨¼Ò¾×(½Ç°Å·¡¾×)
+						//ê°ì†Œì•¡(ì‹¤ê±°ë˜ì•¡)
 						if (mergedownCount[5]==0) {
 							//System.out.println(cell);
 							cell=cellArray.get(i++);
@@ -318,20 +318,20 @@ public class XMLParser {
 							contents = getContents(cell);
 							priceFall_ += contents;
 							//System.out.println("priceFall:"+priceFall_);
-							if (bottomBorders.contains(sid)) check[5] = 1; //¹ØÁÙÀÌ ÀÖÀ¸¸é ³¡À¸·Î ±â·Ï
+							if (bottomBorders.contains(sid)) check[5] = 1; //ë°‘ì¤„ì´ ìˆìœ¼ë©´ ëìœ¼ë¡œ ê¸°ë¡
 							
 						} else {
 							mergedownCount[5]--;
 						}
 						
-					} else { //°£È¤ ½Å±Ô ÁøÀÔÀÚÀÇ °æ¿ì Á¾Àü°¡¾×ÀÌ ¾ø´Â °æ¿ì°¡ ÀÖ´Ù.
-						//System.out.println("¾ÈµÇ´Âµ¥");
+					} else { //ê°„í˜¹ ì‹ ê·œ ì§„ì…ìì˜ ê²½ìš° ì¢…ì „ê°€ì•¡ì´ ì—†ëŠ” ê²½ìš°ê°€ ìˆë‹¤.
+						//System.out.println("ì•ˆë˜ëŠ”ë°");
 						priceBefore_ = "";
 						priceRise_ = "";
 						priceFall_ = "";
 					}
 					
-					//ÇöÀç°¡¾×
+					//í˜„ì¬ê°€ì•¡
 					if (mergedownCount[6]==0) {
 						//System.out.println(cell);
 						cell=cellArray.get(i++);
@@ -341,17 +341,17 @@ public class XMLParser {
 						contents = getContents(cell);
 						priceCurrent_ += contents;
 						//System.out.println("priceCurrent:"+priceCurrent_);
-						if (bottomBorders.contains(sid)) check[6] = 1; //¹ØÁÙÀÌ ÀÖÀ¸¸é ³¡À¸·Î ±â·Ï
+						if (bottomBorders.contains(sid)) check[6] = 1; //ë°‘ì¤„ì´ ìˆìœ¼ë©´ ëìœ¼ë¡œ ê¸°ë¡
 						
 					} else {
 						mergedownCount[6]--;
 					}
 					
 					
-					//º¯µ¿»çÀ¯
+					//ë³€ë™ì‚¬ìœ 
 					if (mergedownCount[7]==0) {
 						cell="";
-						try { //ÁÙÀÌ ÀÌ»óÇÏ°Ô ²¿ÀÎ °æ¿ì¸¦ ´ëºñÇÔ 2016_02.xml ±èÁßÇö¿¡¼­ ¹ß»ı
+						try { //ì¤„ì´ ì´ìƒí•˜ê²Œ ê¼¬ì¸ ê²½ìš°ë¥¼ ëŒ€ë¹„í•¨ 2016_02.xml ê¹€ì¤‘í˜„ì—ì„œ ë°œìƒ
 							cell=cellArray.get(i++);
 							sid = getSID(cell);
 							mergedowned = getMergedown(cell);
@@ -360,11 +360,11 @@ public class XMLParser {
 							reason_ += contents;
 							//System.out.println("reason:"+reason_);
 						} catch (Exception e) {
-							//System.out.println("ÁÙÀÌ ²¿ÀÎ ¿¡·¯ ¹ß»ı");
+							//System.out.println("ì¤„ì´ ê¼¬ì¸ ì—ëŸ¬ ë°œìƒ");
 						}
 						
-						//System.out.println("reason Ãß°¡:"+reason_);
-						if (bottomBorders.contains(sid)) check[7] = 1; //¹ØÁÙÀÌ ÀÖÀ¸¸é ³¡À¸·Î ±â·Ï
+						//System.out.println("reason ì¶”ê°€:"+reason_);
+						if (bottomBorders.contains(sid)) check[7] = 1; //ë°‘ì¤„ì´ ìˆìœ¼ë©´ ëìœ¼ë¡œ ê¸°ë¡
 						
 					} else {
 						mergedownCount[7]--;
@@ -372,10 +372,10 @@ public class XMLParser {
 					
 					
 					
-					//ÀÌÁ¦ °¢°¢ ³¡³µ´ÂÁö Ã¼Å© 
-					if (mergedownCount[0]==0 && check[0]==1) { //Ã¹ÁÙÀÌ ´İÇûÀ¸¸é ³ª¸ÓÁö´Â ¸ğµÎ ´İÇûÀ» °ÍÀÌ¶ó°í °£ÁÖÇÑ´Ù.
+					//ì´ì œ ê°ê° ëë‚¬ëŠ”ì§€ ì²´í¬ 
+					if (mergedownCount[0]==0 && check[0]==1) { //ì²«ì¤„ì´ ë‹«í˜”ìœ¼ë©´ ë‚˜ë¨¸ì§€ëŠ” ëª¨ë‘ ë‹«í˜”ì„ ê²ƒì´ë¼ê³  ê°„ì£¼í•œë‹¤.
 						
-						if (priceCurrent_.equals("")&&!detail_.equals("°íÁö°ÅºÎ")&&!detail_.equals("µî·ÏÁ¦¿Ü")) { //ÀÌ°Ô ºñ¾î ÀÖ´Ù¸é Àå¹Ù²Ş ¿¡·¯·Î º»´Ù. µû¶ó¼­ ÀÌÀü °ÍÀ» °¡Á®¿È
+						if (priceCurrent_.equals("")&&!detail_.equals("ê³ ì§€ê±°ë¶€")&&!detail_.equals("ë“±ë¡ì œì™¸")) { //ì´ê²Œ ë¹„ì–´ ìˆë‹¤ë©´ ì¥ë°”ê¿ˆ ì—ëŸ¬ë¡œ ë³¸ë‹¤. ë”°ë¼ì„œ ì´ì „ ê²ƒì„ ê°€ì ¸ì˜´
 							
 							//System.out.println(countIndex+"/"+detail_);
 							detail.set(countIndex-1, detail.get(countIndex-1)+detail_);
@@ -384,12 +384,12 @@ public class XMLParser {
 							priceFall.set(countIndex-1, priceFall.get(countIndex-1)+priceFall_);
 							priceCurrent.set(countIndex-1, priceCurrent.get(countIndex-1)+priceCurrent_);
 							
-							if (reason.size()<countIndex) { //¾ÆÁ÷ ÇÏ³ªµµ ¾øÀ» ¶§ °É¸®¸é ¿¡·¯³². 2013_a.xml ¹Ú¼ºÈ¿
+							if (reason.size()<countIndex) { //ì•„ì§ í•˜ë‚˜ë„ ì—†ì„ ë•Œ ê±¸ë¦¬ë©´ ì—ëŸ¬ë‚¨. 2013_a.xml ë°•ì„±íš¨
 									reason_ ="";		
 							} else {
-								if (reason_.equals("")) reason_ = reason.get(countIndex-1); //Àü ÀåÀÇ ¼³¸íµµ °¡Á®¿Â´Ù.				
+								if (reason_.equals("")) reason_ = reason.get(countIndex-1); //ì „ ì¥ì˜ ì„¤ëª…ë„ ê°€ì ¸ì˜¨ë‹¤.				
 							}
-							//System.out.println("¿©±â¿¡ µé¾î¿Í¹ö¸²");
+							//System.out.println("ì—¬ê¸°ì— ë“¤ì–´ì™€ë²„ë¦¼");
 							
 						} else {
 							
@@ -404,7 +404,7 @@ public class XMLParser {
 							priceCurrent.add(priceCurrent_);
 							
 							sixColumnCount++;
-							countIndex++; // 'ÇÑÁÙÇÑÁÙ'ÀÇ µ¥ÀÌÅÍ ¼ö¸¦ Ä«¿îÆ®ÇÑ´Ù.
+							countIndex++; // 'í•œì¤„í•œì¤„'ì˜ ë°ì´í„° ìˆ˜ë¥¼ ì¹´ìš´íŠ¸í•œë‹¤.
 						}
 						
 						who_="";
@@ -418,7 +418,7 @@ public class XMLParser {
 					
 					if (mergedownCount[7]==0 && check[7]==1) {
 						
-						//System.out.println("±â·ÏÇÑ´Ù");
+						//System.out.println("ê¸°ë¡í•œë‹¤");
 						for (int j=0 ; j <sixColumnCount ; j++) {
 							reason.add(reason_);
 							//System.out.println("reason:"+reason_);
@@ -431,9 +431,9 @@ public class XMLParser {
 					index = index+row.length();
 					//System.out.println(text.substring(index, index+4));
 					
-				} //L3 Àç»ê ÇÏ³ª¾¿
+				} //L3 ì¬ì‚° í•˜ë‚˜ì”©
 				
-				String reasonTemp ="ÀÌ°Ô ³ª¿À¸é ¾ÈµÈ´Ù.";
+				String reasonTemp ="ì´ê²Œ ë‚˜ì˜¤ë©´ ì•ˆëœë‹¤.";
 				
 				for (int j=0 ; j< who.size() ; j++) {
 					
@@ -452,7 +452,7 @@ public class XMLParser {
 */				
 					
 					
-					if (category.get(j).equals("Ã¤¹«")) {
+					if (category.get(j).equals("ì±„ë¬´")) {
 						bw.write(who.get(j)+"|"+what.get(j)+"|"+detail.get(j)
 						+"|"+(priceBeforeTemp.replaceAll(" ","").equals("")?"":("-"+priceBeforeTemp))
 						+"|"+(priceRiseTemp[0].replaceAll(" ","").equals("")?"":("-"+priceRiseTemp[0]))
@@ -469,7 +469,7 @@ public class XMLParser {
 					
 					
 					
-					if (reason.get(j).equals("¡¨")) {
+					if (reason.get(j).equals("ã€ƒ")) {
 						
 					} else {
 						reasonTemp = reason.get(j); 
@@ -482,11 +482,11 @@ public class XMLParser {
 
 				}
 				
-			} //while L1 Àç»ê´ÜÀ§
+			} //while L1 ì¬ì‚°ë‹¨ìœ„
 			
 			
 			
-		} //while L2 »ç¶÷´ÜÀ§
+		} //while L2 ì‚¬ëŒë‹¨ìœ„
 		
 		bw.close();
 		
@@ -508,7 +508,7 @@ public class XMLParser {
 		HashSet<String> bottomBorders = new HashSet<String>();
 		
 		int index = text.indexOf("<Style ss:");
-		String criteria = "Border ss:Position=\"Bottom\"";// ss:Color=\"#231F20\"";  //2011³âÀº 231f20
+		String criteria = "Border ss:Position=\"Bottom\"";// ss:Color=\"#231F20\"";  //2011ë…„ì€ 231f20
 		
 		while (true) {
 			String style = getStyleRow(text, index);
@@ -556,7 +556,7 @@ public class XMLParser {
 		
 		int indexE = text.indexOf("</Style>", indexS);
 		
-		String row = text.substring(indexS, indexE+8); //</row>±îÁö Æ÷ÇÔ. µÚÀÇ ¿¬»êÀ» À§ÇØ.	
+		String row = text.substring(indexS, indexE+8); //</row>ê¹Œì§€ í¬í•¨. ë’¤ì˜ ì—°ì‚°ì„ ìœ„í•´.	
 		
 		return row;
 		
@@ -582,7 +582,7 @@ public class XMLParser {
 		
 		contents = contents.replaceAll(",", "");
 		contents = contents.replaceAll(" ", "");
-		contents = contents.replaceAll("-", "0");
+		if (contents.replaceAll("-","").equals("")) contents = contents.replaceAll("-", "0");
 		
 		int i = contents.indexOf("(");
 		
@@ -607,7 +607,7 @@ public class XMLParser {
 
 	private static String getContents(String cell) {
 		
-		cell = cell.replaceAll("<[^>]*>", ""); //ÅÂ±×Á¦°Å
+		cell = cell.replaceAll("<[^>]*>", ""); //íƒœê·¸ì œê±°
 		return cell;
 				
 		
@@ -640,12 +640,12 @@ public class XMLParser {
 		check2 = text.indexOf("/>",indexS+1);
 		if (check2!=-1 && check2<check1) {
 			index = check2+2;
-			return "continue|"+index; //¾Æ¹« ³»¿ë¾øÀÌ row°¡ ´İÈ÷¸é
+			return "continue|"+index; //ì•„ë¬´ ë‚´ìš©ì—†ì´ rowê°€ ë‹«íˆë©´
 		}
 		
 		int indexE = text.indexOf("</Row>", indexS+1);
 		
-		String row = text.substring(indexS, indexE+6); //</row>±îÁö Æ÷ÇÔ. µÚÀÇ ¿¬»êÀ» À§ÇØ.	
+		String row = text.substring(indexS, indexE+6); //</row>ê¹Œì§€ í¬í•¨. ë’¤ì˜ ì—°ì‚°ì„ ìœ„í•´.	
 		if (row.replaceAll("<[^>]*>", "").equals("")) return "continue|"+(indexS+row.length());
 		//System.out.println("____"+ row);
 		return row;
@@ -657,7 +657,7 @@ public class XMLParser {
 		int indexSub = 0;
 		
 		check3 = row.indexOf(">")+1;
-		String cells = row.substring(check3); // cell ÅÂ±×µé¸¸ ³²±â±â
+		String cells = row.substring(check3); // cell íƒœê·¸ë“¤ë§Œ ë‚¨ê¸°ê¸°
 		ArrayList<String> cellArray = new ArrayList<String>();
 		
 		L1: while(true) {
