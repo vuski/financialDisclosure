@@ -582,15 +582,18 @@ public class XMLParser {
 		
 		contents = contents.replaceAll(",", "");
 		contents = contents.replaceAll(" ", "");
-		if (contents.replaceAll("-","").equals("")) contents = contents.replaceAll("-", "0");
 		
 		int i = contents.indexOf("(");
 		
 		if (i==-1) {
+			if (contents.replaceAll("-","").equals("")) contents = contents.replaceAll("-", "0");
 			return contents+"| ";
-		} else {
+		} else { //실거래가가 있으면,
 			contents = contents.substring(0, contents.length()-1);
-			return contents.split("\\(")[0]+"|"+contents.split("\\(")[1];
+			String[] contents_ = contents.split("\\(");
+			if (contents_[0].replaceAll("-","").equals("")) contents_[0] = contents_[0].replaceAll("-", "0");
+			if (contents_[1].replaceAll("-","").equals("")) contents_[1] = contents_[1].replaceAll("-", "0");
+			return contents_[0]+"|"+contents_[1];
 		}
 		
 	}
